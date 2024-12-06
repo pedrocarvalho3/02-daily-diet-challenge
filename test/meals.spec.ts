@@ -26,6 +26,10 @@ describe('Meals route', async () => {
 
     const cookies = createUserResponse.get('Set-Cookie')
 
+    if (!cookies) {
+      throw new Error('Cookies are undefined')
+    }
+
     const response = await request(app.server)
       .post('/meals')
       .set('Cookie', cookies)
@@ -47,6 +51,10 @@ describe('Meals route', async () => {
     expect(createUserResponse.status).toEqual(201)
 
     const cookies = createUserResponse.get('Set-Cookie')
+
+    if (!cookies) {
+      throw new Error('Cookies are undefined')
+    }
 
     await request(app.server).post('/meals').set('Cookie', cookies).send({
       name: 'Meal 1',
@@ -78,6 +86,10 @@ describe('Meals route', async () => {
     expect(createUserResponse.status).toEqual(201)
 
     const cookies = createUserResponse.get('Set-Cookie')
+
+    if (!cookies) {
+      throw new Error('Cookies are undefined')
+    }
 
     const mealResponse = await request(app.server)
       .post('/meals')
@@ -115,6 +127,10 @@ describe('Meals route', async () => {
     expect(createUserResponse.status).toEqual(201)
 
     const cookies = createUserResponse.get('Set-Cookie')
+
+    if (!cookies) {
+      throw new Error('Cookies are undefined')
+    }
 
     const mealResponse = await request(app.server)
       .post('/meals')
@@ -164,6 +180,10 @@ describe('Meals route', async () => {
 
     const cookies = createUserResponse.get('Set-Cookie')
 
+    if (!cookies) {
+      throw new Error('Cookies are undefined')
+    }
+
     const mealResponse = await request(app.server)
       .post('/meals')
       .set('Cookie', cookies)
@@ -199,6 +219,10 @@ describe('Meals route', async () => {
     expect(createUserResponse.status).toEqual(201)
 
     const cookies = createUserResponse.get('Set-Cookie')
+
+    if (!cookies) {
+      throw new Error('Cookies are undefined')
+    }
 
     await request(app.server).post('/meals').set('Cookie', cookies).send({
       name: 'Meal 1',
